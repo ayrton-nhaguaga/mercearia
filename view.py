@@ -60,7 +60,7 @@ if __name__ == "__main__":
                     quantidade = input("Digite a quantidade\n")
                     est.cadastrarEstoque(nome, preco, categoria, quantidade)
                 elif decidir == 2:
-                    nome = input("Digite o produto que deseja remover")
+                    nome = input("Digite o produto que deseja remover\n")
                     est.removerProduto(nome)
                 elif decidir == 3:
                     nomeAlterar = input("Digite o produto que deseja alterar\n")
@@ -77,18 +77,18 @@ if __name__ == "__main__":
         elif menu == 3:
             cat = controller.ControllerFornecedor()
             while True:
-                decidir = input("Digite 1 para cadastrar fornecedor\n"
+                decidir = int(input("Digite 1 para cadastrar fornecedor\n"
                 "Digite 2 para remover fornecedor\n"
                 "Digite 3 para mostrar fornecedores\n"
-                "Digite 4 para sair")
+                "Digite 4 para sair\n"))
 
                 if decidir == 1:
                     nome = input("Digite o nome do fornecedor\n")
                     telefone = input("Digite o telefone do fornecedor\n")
-                    categoria = input("Digite a categoria que ele fornece")
+                    categoria = input("Digite a categoria que ele fornece\n")
                     cat.cadastrarFornecedor(nome, telefone, categoria)
                 elif decidir == 2:
-                    nome = input("Digite o nome do fornecedor que deseja remover")
+                    nome = input("Digite o nome do fornecedor que deseja remover\n")
                     cat.removerFornecedor(nome)
                 elif decidir == 3:
                     cat.mostrarFornecedor()
@@ -98,29 +98,29 @@ if __name__ == "__main__":
         elif menu == 4:
             cat = controller.ControllerCliente()
             while True:
-                decidir = input("Digite 1 para cadastrar cliente\n"
+                decidir = int(input("Digite 1 para cadastrar cliente\n"
                 "Digite 2 para alterar cliente\n"
                 "Digite 3 para remover cliente\n"
                 "Digite 4 para mostrar cliente\n"
-                "Digite 5 para sair\n")
+                "Digite 5 para sair\n"))
 
                 if decidir == 1:
-                    nome = input("Digite o nome do cliente")
-                    telefone = input("Digite o telefone do cliente")
-                    bi = input("Digite o BI do cliente")
-                    email = input("Digite o email do cliente")
-                    endereco = input("Digite o endereco do cliente")
+                    nome = input("Digite o nome do cliente\n")
+                    telefone = input("Digite o telefone do cliente\n")
+                    bi = input("Digite o BI do cliente\n")
+                    email = input("Digite o email do cliente\n")
+                    endereco = input("Digite o endereco do cliente\n")
                     cat.cadastrarCliente(nome, telefone, bi, email, endereco)
                 elif decidir == 2:
-                    nomeAlterar = input("Digite o nome do cliente que deseja alterar")
-                    novoNome = input("Digite o nome do novo cliente")
-                    novoTelefone = input("Digite o telefone do novo cliente")
-                    novoBi = input("Digite o BI do novo cliente")
-                    novoEmail = input("Digite o nome do novo cliente")
-                    novoEndereco = input("Digite o endereco do novo cliente")
+                    nomeAlterar = input("Digite o nome do cliente que deseja alterar\n")
+                    novoNome = input("Digite o nome do novo cliente\n")
+                    novoTelefone = input("Digite o telefone do novo cliente\n")
+                    novoBi = input("Digite o BI do novo cliente\n")
+                    novoEmail = input("Digite o nome do novo cliente\n")
+                    novoEndereco = input("Digite o endereco do novo cliente\n")
                     cat.alterarCliente(nomeAlterar, novoNome, novoTelefone, novoBi, novoEmail, novoEndereco)
                 elif decidir == 3:
-                    nome = input("Digite o nome do cliente que deseja remover")
+                    nome = input("Digite o nome do cliente que deseja remover\n")
                     cat.removerCliente(nome)
                 elif decidir == 4:
                     cat.mostrarCliente()
@@ -130,10 +130,10 @@ if __name__ == "__main__":
         elif menu == 5:
             cat = controller.ControllerFuncionario()
             while True:
-                decidir = input("Digite 1 para cadastrar funcionario\n"
+                decidir = int(input("Digite 1 para cadastrar funcionario\n"
                 "Digite 2 para remover funcionario\n"
                 "Digite 3 para mostrar funcionarios\n"
-                "Digite 4 para sair")
+                "Digite 4 para sair\n"))
 
                 if decidir == 1:
                     nome = input("Digite o nome do funcionario\n")
@@ -143,13 +143,46 @@ if __name__ == "__main__":
                     endereco = input("Digite o endereco do funcionario\n")
                     cat.cadastrarFuncionario(nome, telefone, bi, email, endereco)
                 elif decidir == 2:
-                    nome = input("Digite o nome do funcionario que deseja remover")
+                    nome = input("Digite o nome do funcionario que deseja remover\n")
                     cat.removerFuncionario(nome)
                 elif decidir == 3:
                     cat.mostrarFuncionario()
                 else:
                     break
-                    
-                
 
+        elif menu == 6:
+            cat = controller.ControllerVenda()
+            while True:
+                decidir = int(input("Digite 1 para cadastrar venda\n"
+                      "Digite 2 para relatorio de vendas\n"
+                      "Digie 3 para mostrar vendas\n"))
+                
+                if decidir == 1:
+                    nomeProduto = input("Digite o nome do produto\n")
+                    vendedor = input("Digite o nome do vendedor\n")
+                    comprador = input("Digite o nome do comprador\n")
+                    quantidadeVendida = input("Digite a quantidade vendida\n")
+                    cat.cadastrarVenda(nomeProduto, vendedor, comprador, quantidadeVendida)
+                    
+                elif decidir == 2:
+                    cat.relatorioVenda()
+                
+                elif decidir == 3:
+                    dataInicio = input("Digite a data de inicio\n")
+                    dataTermino = input("Digite a data de termino\n")
+                    cat.mostrarVenda(dataInicio, dataTermino)
+                    
+                else:
+                    break
+                
+        elif menu == 7:
+            dataInicio = input("Digite a data de inicio\n")
+            dataTermino = input("Digite a data de termino\n")
+            cat.mostrarVenda(dataInicio, dataTermino)
+                    
+        else:
+            break
+        
+                         
+                
 
